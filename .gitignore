@@ -1,0 +1,29 @@
+# --- Virtual Environment ---
+# 忽略整個 Python 虛擬環境資料夾
+venv/
+.env/
+# --- Build output ---
+# 忽略由 freeze.py 產生的靜態網站資料夾
+build/
+
+# --- Environment variables ---
+# 忽略存放敏感資訊的 .env 檔案
+.env
+*.env
+
+# --- Python cache ---
+# 忽略 Python 產生的快取檔案
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# --- Database files ---
+# 忽略開發用的 SQLite 資料庫檔案
+*.db
+*.sqlite3
+
+# --- OS-specific files ---
+# 忽略 macOS 和 Windows 系統自動產生的檔案
+.DS_Store
+Thumbs.db

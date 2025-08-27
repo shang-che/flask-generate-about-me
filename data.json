@@ -1,0 +1,298 @@
+{
+    "zh_tw": {
+        "name": "劉尚哲",
+        "english_name": "Shang-Che Liu",
+        "headline": "國立陽明交通大學 碩士生 | 專注於嵌入式 AI 與軟硬體整合",
+        "intro": "\n        我是一位就讀於國立陽明交通大學智慧系統與應用研究所的碩士生，目前於電子所的 iVS Lab 中，大學資工系的背景為我奠定了扎實的軟體基礎。我對弭平軟硬體之間的鴻溝充滿熱情，目前專注於研究 Edge AI 、 嵌入式系統與 FPGA 軟硬體整合。\n    ",
+        "social_links": [
+            {
+                "href": "https://github.com/shang-che",
+                "title": "GitHub",
+                "icon": "fab fa-github"
+            },
+            {
+                "href": "https://www.linkedin.com/in/shangche",
+                "title": "LinkedIn",
+                "icon": "fab fa-linkedin"
+            },
+            {
+                "href": "mailto:sche.ai14@nycu.edu.tw",
+                "title": "Email",
+                "icon": "fas fa-envelope"
+            },
+            {
+                "href": "https://ivs.ee.nycu.edu.tw/",
+                "target": "_blank",
+                "title": "iVS Lab",
+                "icon": "fas fa-flask"
+            }
+        ],
+        "education": [
+            {
+                "school": "國立陽明交通大學",
+                "degree": "碩士, 智慧系統與應用研究所 (iVS Lab)",
+                "period": "2025 - 至今"
+            },
+            {
+                "school": "逢甲大學",
+                "degree": "學士, 資訊工程學系",
+                "period": "2021 - 2025"
+            }
+        ],
+        "experience": [
+            {
+                "company": "Institute of Atmospheric Pollution Research in Council of National Research, Italy (CNR-IIA)",
+                "location": "義大利國家研究委員會-大氣污染研究所",
+                "title": "暑期實習生",
+                "period": "2025/04 - 2025/06",
+                "duties": [
+                    "參與嵌入式感測模組開發，運用裝置採取空氣數值協助研究。",
+                    "將嵌入式裝置串上 Web 與 Mobile App 遠端控制裝置與獲取數值。",
+                    "協作撰寫技術文件，並於實習結束發表專案成果。"
+                ]
+            },
+            {
+                "company": "Mah Fah Luang University, Dept. of Health Science",
+                "location": "泰國皇太后大學",
+                "title": "暑期交換實習學生",
+                "period": "2024/07 - 2024/08",
+                "duties": [
+                    "製作一個基於Arduino核心的自動化分類垃圾桶。",
+                    "於交換實習結束發表專案成果。"
+                ]
+            },
+            {
+                "company": "逢甲大學 資訊工程學系",
+                "location": null,
+                "title": "教學助理",
+                "period": "2024/09 - 2025/06",
+                "duties": [
+                    "協助「嵌入式系統」、「邏輯設計」、「系統程式」等課程實作與作業批改。"
+                ]
+            }
+        ],
+        "skills": {
+            "硬體與嵌入式系統": [
+                "FPGA (Verilog/HLS)",
+                "SoC (系統單晶片)",
+                "ARM Architecture",
+                "Embedded Linux",
+                "C / C++",
+                "RTOS"
+            ],
+            "AI 與演算法": [
+                "Edge AI",
+                "TensorFlow Lite",
+                "Computer Vision (CNN)",
+                "EDA Algorithms",
+                "SystemVerilog",
+                "Pytorch"
+            ],
+            "軟體與工具": [
+                "Python",
+                "Git / GitHub",
+                "Docker",
+                "Shell Script",
+                "GDB Debugger"
+            ]
+        },
+        "projects": [
+            {
+                "category_name": "國科會大專生研究計畫 (NSTC)",
+                "project_list": [
+                    {
+                        "name": "Boid 演算法在音訊輸入引導下於活動場地人流管理中的模擬與分析",
+                        "project_url": "#",
+                        "period": "2024/07/01 至 2025/02/28",
+                        "project_id": "NSTC 113-2813-C-035-135-E",
+                        "desc": "本專題旨在研究如何運用 SoC FPGA 技術，實現音訊的視覺化處理與軟硬體協同設計，並以 Boids 演算法作為應用實例。研究透過接收音訊，並在 DE1-SoC 的 FPGA 上進行處理，藉此改變 boids （模擬群體）的行為參數，以模擬並觀察音訊對群體行為的影響，例如在緊急情況下利用聲音疏散人群。",
+                        "details": [
+                            "採用軟硬體協同設計，將音訊處理與 VGA 影像顯示等高速運算部分在 FPGA 上實現，而 Boid 演算法的控制邏輯則在 HPS ( ARM 處理器) 上實現。",
+                            "在FPGA端使用五個FIR帶通濾波器(band pass filter)對輸入音訊進行過濾，並將處理後的振幅或頻率等參數傳遞至 HPS ，用以即時調整 Boid 演算法中的分離、對齊、凝聚等規則。",
+                            "成功將Boid演算法的模擬結果，以 2D 及 3D 的方式呈現在 VGA 螢幕上，並可透過鍵盤控制 3D 畫面的旋轉。",
+                            "<strong>成果：</strong> 在音訊處理方面，使用 FPGA 實作比純軟體( C 語言)實作的速度快 51 倍。",
+                            "<strong>成果：</strong> 在繪圖效能方面，使用 DE1-SoC 進行繪圖的平均速度比使用 Windows 系統的Library快約 6 倍。"
+                        ],
+                        "link": {
+                            "href": "https://github.com/shang-che/boid-algorithm-on-DE1-SoC",
+                            "text": "查看 GitHub 原始碼 →"
+                        }
+                    },
+                    {
+                        "name": "應用於多圖案微影技術之研究",
+                        "project_url": "#",
+                        "period": "2023/07/01 至 2024/02/29",
+                        "project_id": "NSTC 112-2813-C-035-080-E",
+                        "desc": "隨著半導體追求先進製程，單次曝光的光刻技術已無法滿足精度需求，可能產生短路等瑕疵。為解決此問題，本研究著重於多重曝光技術，該技術將電路圖分割至不同圖層，分次曝光與蝕刻。計畫核心在於如何利用模擬退火演算法(Simulated Annealing)，將一個完整的電路圖進行有效的分層，以達到最佳化的分割。",
+                        "details": [
+                            "將電路圖中，彼此間距小於光刻機最小精度的元件抽象化為圖論中的節點 (Node)，並在這些節點之間建立連線，形成衝突圖 (Conflict Graph)。",
+                            "把圖層分割問題轉換為圖著色問題 (Graph Coloring Problem)，規定相鄰的元件節點必須塗上不同顏色，代表它們被分配到不同的曝光圖層。此方法利用了二部圖 (Bipartite Graph) 的概念進行驗證。",
+                            "採用模擬退火演算法，以「顏色密度」的均衡性作為評估函式 (Fitness Function)，來尋找全局最佳的塗色（分層）方案，從而提升分割效率。",
+                            "<strong>成果：</strong> 在 ICCAD 2015 Contest 提供的測試案例中，本研究所開發的演算法於 `iccad2015_input.case1` 達到了99.46的高分。"
+                        ],
+                        "link": {
+                            "href": "https://github.com/shang-che/iccad-graphcoloring",
+                            "text": "查看 GitHub 原始碼 →"
+                        }
+                    }
+                ]
+            },
+            {
+                "category_name": "研究計劃",
+                "project_list": []
+            },
+            {
+                "category_name": "碩士論文",
+                "project_list": []
+            }
+        ]
+    },
+    "en_us": {
+        "name": "Shang-Che Liu",
+        "english_name": "",
+        "headline": "M.S. Student at NYCU | Focused on Embedded AI & HW/SW Co-design",
+        "intro": "\n        I am a Master's student at the Institute of Intelligent Systems and Applications at NYCU, currently with the iVS Lab in the Institute of Electronics. My undergraduate background in Computer Science has provided me with a solid software foundation. I am passionate about bridging the gap between hardware and software, and my current research focuses on Edge AI, Embedded Systems, and FPGA Hardware/Software Co-design.\n    ",
+        "social_links": [
+            {
+                "href": "https://github.com/shang-che",
+                "title": "GitHub",
+                "icon": "fab fa-github"
+            },
+            {
+                "href": "https://www.linkedin.com/in/shangche",
+                "title": "LinkedIn",
+                "icon": "fab fa-linkedin"
+            },
+            {
+                "href": "mailto:sche.ai14@nycu.edu.tw",
+                "title": "Email",
+                "icon": "fas fa-envelope"
+            },
+            {
+                "href": "https://ivs.ee.nycu.edu.tw/",
+                "target": "_blank",
+                "title": "iVS Lab",
+                "icon": "fas fa-flask"
+            }
+        ],
+        "education": [
+            {
+                "school": "National Yang Ming Chiao Tung University",
+                "degree": "M.S., Institute of Intelligent Systems and Applications (iVS Lab)",
+                "period": "2025 - Present"
+            },
+            {
+                "school": "Feng Chia University",
+                "degree": "B.S., Department of Computer Science and Information Engineering",
+                "period": "2021 - 2025"
+            }
+        ],
+        "experience": [
+            {
+                "company": "Institute of Atmospheric Pollution Research, Council of National Research, Italy (CNR-IIA)",
+                "location": "National Research Council of Italy",
+                "title": "Summer Intern",
+                "period": "2025/04 - 2025/06",
+                "duties": [
+                    "Participated in the development of an embedded sensing module, using the device to collect air quality data for research.",
+                    "Integrated the embedded device with Web and Mobile Apps for remote control and data acquisition.",
+                    "Collaborated on writing technical documentation and presented project results at the end of the internship."
+                ]
+            },
+            {
+                "company": "Mae Fah Luang University, School of Health Science",
+                "location": "Thailand",
+                "title": "Summer Exchange Intern",
+                "period": "2024/07 - 2024/08",
+                "duties": [
+                    "Developed an automated, Arduino-based trash sorting bin.",
+                    "Presented the project results at the conclusion of the exchange internship."
+                ]
+            },
+            {
+                "company": "Feng Chia University, Dept. of CSIE",
+                "location": null,
+                "title": "Teaching Assistant",
+                "period": "2024/09 - 2025/06",
+                "duties": [
+                    "Assisted with labs and graded assignments for courses including 'Embedded Systems', 'Logic Design', and 'System Programming'."
+                ]
+            }
+        ],
+        "skills": {
+            "Hardware & Embedded Systems": [
+                "FPGA (Verilog/HLS)",
+                "SoC (System-on-Chip)",
+                "ARM Architecture",
+                "Embedded Linux",
+                "C / C++",
+                "RTOS"
+            ],
+            "AI & Algorithms": [
+                "Edge AI",
+                "TensorFlow Lite",
+                "Computer Vision (CNN)",
+                "EDA Algorithms",
+                "SystemVerilog",
+                "Pytorch"
+            ],
+            "Software & Tools": [
+                "Python",
+                "Git / GitHub",
+                "Docker",
+                "Shell Script",
+                "GDB Debugger"
+            ]
+        },
+        "projects": [
+            {
+                "category_name": "Undergraduate Research Projects (NSTC)",
+                "project_list": [
+                    {
+                        "name": "Simulation and Analysis of Boid Algorithm for Crowd Management in Venues Guided by Audio Input",
+                        "project_url": "#",
+                        "period": "2024/07/01 - 2025/02/28",
+                        "project_id": "NSTC 113-2813-C-035-135-E",
+                        "desc": "This project aimed to research the use of SoC FPGA technology for audio visualization and hardware/software co-design, with the Boids algorithm as a practical application. The study involved receiving audio signals and processing them on a DE1-SoC FPGA to alter the behavioral parameters of 'boids' (a simulated flock), thereby simulating and observing the impact of audio on group behavior, such as crowd evacuation using sound during emergencies.",
+                        "details": [
+                            "Adopted a hardware/software co-design approach, implementing high-speed computations like audio processing and VGA display on the FPGA, while the Boid algorithm's control logic was implemented on the HPS (ARM processor).",
+                            "Utilized five FIR band-pass filters on the FPGA to process the input audio, passing the resulting amplitude or frequency parameters to the HPS for real-time adjustment of the Boid algorithm's separation, alignment, and cohesion rules.",
+                            "Successfully rendered the Boid algorithm simulation in both 2D and 3D on a VGA monitor, with keyboard controls for 3D view rotation.",
+                            "<strong>Results:</strong> In audio processing, the FPGA implementation was 51 times faster than a pure software (C language) implementation.",
+                            "<strong>Results:</strong> For graphics rendering, the average drawing speed of the DE1-SoC was approximately 6 times faster than using a Windows system library."
+                        ],
+                        "link": {
+                            "href": "https://github.com/shang-che/boid-algorithm-on-DE1-SoC",
+                            "text": "View Source on GitHub →"
+                        }
+                    },
+                    {
+                        "name": "A Study on the Application of Multi-Patterning Lithography Technology",
+                        "project_url": "#",
+                        "period": "2023/07/01 - 2024/02/29",
+                        "project_id": "NSTC 112-2813-C-035-080-E",
+                        "desc": "As the semiconductor industry pursues advanced processes, single-exposure lithography fails to meet precision requirements, leading to defects like short circuits. This research focuses on multi-patterning technology, which partitions a circuit layout into different layers for sequential exposure and etching. The project's core is to utilize a Simulated Annealing algorithm to effectively and optimally partition a complete circuit layout into distinct layers.",
+                        "details": [
+                            "Abstracted the circuit layout into a conflict graph, where components with spacing smaller than the lithography limit are represented as connected nodes.",
+                            "Framed the layer-partitioning task as a 2-coloring problem, where adjacent nodes must have different colors (representing different exposure masks), leveraging Bipartite Graph concepts for validation.",
+                            "Applied a Simulated Annealing algorithm with a fitness function based on color density balance to find the globally optimal coloring (partitioning) solution.",
+                            "<strong>Result:</strong> The developed algorithm achieved a high score of 99.46 on the `iccad2015_input.case1` test case from the ICCAD 2015 Contest."
+                        ],
+                        "link": {
+                            "href": "https://github.com/shang-che/iccad-graphcoloring",
+                            "text": "View Source on GitHub →"
+                        }
+                    }
+                ]
+            },
+            {
+                "category_name": "Conference Papers",
+                "project_list": []
+            },
+            {
+                "category_name": "Master's Thesis",
+                "project_list": []
+            }
+        ]
+    }
+}

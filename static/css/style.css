@@ -1,0 +1,331 @@
+/* --- 1. 定義顏色變數 (淺色與深色主題) --- */
+
+/* :root 選擇器定義了全域的 CSS 變數，預設為淺色模式 */
+:root {
+    --background-color: #f8f9fa;       /* 頁面背景色 */
+    --card-background-color: #ffffff;  /* 卡片/區塊背景色 */
+    --text-color: #34495e;             /* 主要文字顏色 */
+    --subtle-text-color: #888;          /* 較淺的文字顏色 (頁尾) */
+    --heading-color: #2c3e50;           /* 標題顏色 */
+    --primary-color: #005f9e;           /* 主要品牌色 (連結、重點、NYCU 代表色之一) */
+    --secondary-color: #e8f4ff;       /* 次要/輔助色 (技能標籤背景) */
+    --border-color: #eeeeee;           /* 邊框顏色 */
+    --shadow-color: rgba(0, 0, 0, 0.05); /* 陰影顏色 */
+    --toggle-border-color: #dddddd;      /* 切換按鈕邊框色 */
+}
+
+/* 當 html 標籤有 data-theme="dark" 屬性時，套用這些深色模式的變數 */
+html[data-theme='dark'] {
+    --background-color: #1a1a1a;
+    --card-background-color: #2c2c2c;
+    --text-color: #d1d1d1;
+    --subtle-text-color: #777;
+    --heading-color: #ffffff;
+    --primary-color: #4dabf7;
+    --secondary-color: #36495e;
+    --border-color: #444444;
+    --shadow-color: rgba(0, 0, 0, 0.2);
+    --toggle-border-color: #555555;
+}
+
+
+/* --- 2. 基本重設與全域設定 (使用變數) --- */
+body, h1, h2, h3, p, ul {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Helvetica Neue', 'PingFang TC', 'Microsoft JhengHei', Arial, sans-serif;
+    line-height: 1.7;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s; /* 加上過渡效果讓切換更平滑 */
+}
+
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+
+/* --- 3. 重構現有樣式 (使用變數) --- */
+
+/* 頁首 Header */
+header {
+    background-color: var(--card-background-color);
+    padding: 50px 20px;
+    text-align: center;
+    box-shadow: 0 2px 4px var(--shadow-color);
+    position: relative; /* 為了讓切換按鈕可以定位 */
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.profile-pic {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+    border: 6px solid var(--card-background-color);
+    box-shadow: 0 5px 15px var(--shadow-color);
+}
+
+header h1 {
+    font-size: 2.8rem;
+    color: var(--heading-color);
+    margin-bottom: 10px;
+}
+
+header h2 {
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: var(--primary-color);
+    margin-bottom: 25px;
+}
+
+.intro {
+    max-width: 700px;
+    margin: 0 auto 25px auto;
+    font-size: 1.1rem;
+}
+
+.social-links a {
+    color: var(--text-color);
+    margin: 0 12px;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+}
+.social-links a:hover {
+    color: var(--primary-color);
+}
+.social-links a i {
+    margin-right: 6px;
+}
+
+/* 區塊 Section */
+section {
+    background-color: var(--card-background-color);
+    margin-top: 25px;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px var(--shadow-color);
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+section h2 {
+    font-size: 2rem;
+    color: var(--heading-color);
+    padding-bottom: 15px;
+    margin-bottom: 25px;
+    border-bottom: 3px solid var(--primary-color);
+    display: inline-block;
+}
+
+/* 學歷 & 經歷 */
+.edu-item, .exp-item {
+    margin-bottom: 20px;
+}
+.edu-item:last-child, .exp-item:last-child {
+    margin-bottom: 0;
+}
+.edu-item h3, .exp-item h3 {
+    font-size: 1.25rem;
+    color: var(--heading-color);
+}
+.edu-item p, .exp-item p {
+    font-size: 1rem;
+    margin: 0;
+}
+.exp-item ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin-top: 10px;
+}
+.exp-item ul li, .project ul li {
+    padding-left: 25px;
+    margin-bottom: 10px;
+    position: relative;
+}
+/* 使用 CSS Mask 技術來讓 SVG 圖示可以變色 */
+.exp-item ul li::before, .project ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 5px; /* 微調圖示垂直位置 */
+    width: 16px;
+    height: 16px;
+    background-color: var(--primary-color);
+    mask-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check2-circle" viewBox="0 0 16 16"><path d="M2.5 8a5.5 5.5 0 0 1 8.25-4.764.5.5 0 0 0 .5-.866A6.5 6.5 0 1 0 14.5 8a.5.5 0 0 0-1 0 5.5 5.5 0 1 1-11 0z"/><path d="M15.354 3.354a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l7-7z"/></svg>');
+    mask-size: cover;
+}
+
+
+/* 技能 */
+.skill-category {
+    margin-bottom: 25px;
+}
+.skill-category:last-child {
+    margin-bottom: 0;
+}
+.skill-category h3 {
+    font-size: 1.2rem;
+    color: var(--heading-color);
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+.skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+.skill-item {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    padding: 8px 18px;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: 500;
+    border: 1px solid var(--primary-color);
+    opacity: 0.8;
+}
+
+/* 專案 */
+.project {
+    margin-bottom: 35px;
+}
+.project:last-child {
+    margin-bottom: 10px;
+}
+.project h3 {
+    font-size: 1.4rem;
+    color: var(--primary-color);
+}
+.project .project-desc {
+    margin: 5px 0 15px 0;
+}
+.project ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+.project-links a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1rem;
+}
+.project-links a:hover {
+    text-decoration: underline;
+}
+
+/* 頁尾 Footer */
+footer {
+    text-align: center;
+    padding: 30px;
+    margin-top: 30px;
+    font-size: 0.9rem;
+    color: var(--subtle-text-color);
+}
+
+
+/* --- 4. Dark Mode 切換按鈕的樣式 --- */
+#theme-toggle {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    background: none;
+    border: 1px solid var(--toggle-border-color);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    color: var(--text-color);
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+#theme-toggle:hover {
+    background-color: var(--secondary-color);
+}
+
+/* 響應式設計 */
+@media (max-width: 600px) {
+    #theme-toggle {
+        top: 15px;
+        right: 15px;
+    }
+    header h1 {
+        font-size: 2.2rem;
+    }
+    header h2 {
+        font-size: 1.1rem;
+    }
+}
+
+/* --- 6. Language Switcher --- */
+.language-switcher {
+    position: absolute;
+    top: 25px;
+    left: 25px;
+}
+
+.language-switcher .lang-link {
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 500;
+    padding: 8px 12px;
+    border: 1px solid var(--toggle-border-color);
+    border-radius: 20px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.language-switcher .lang-link:hover {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+}
+
+
+@media (max-width: 600px) {
+    .language-switcher {
+        top: 15px;
+        left: 15px;
+    }
+}
+
+.project-meta {
+    margin-top: 5px;
+    margin-bottom: 15px;
+    color: var(--subtle-text-color);
+    font-size: 0.9rem;
+}
+
+.project-meta .meta-item {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.project-meta .meta-item i {
+    margin-right: 6px;
+    color: var(--primary-color);
+}
+
+.project-meta .meta-link {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.project-meta .meta-link:hover {
+    color: var(--primary-color);
+    text-decoration: underline;
+}
+
+.project-meta .meta-link i {
+    margin-right: 4px;
+}

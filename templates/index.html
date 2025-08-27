@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="{{ lang.replace('_', '-') }}">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>
+      {{ data.name }}{% if data.english_name %} ({{ data.english_name }}){%
+      endif %} - 個人履歷
+    </title>
+    <link
+      rel="icon"
+      type="image/png"
+      href="{{ url_for('static', filename='images/favicon.png') }}"
+    />
+    <meta
+      name="description"
+      content="國立陽明交通大學碩士生{{ data.name }}的個人履歷網站。"
+    />
+
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    />
+    <script
+      src="{{ url_for('static', filename='js/theme-toggle.js') }}"
+      defer
+    ></script>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <div class="language-switcher">
+          {% if lang == 'en_us' %}
+          <a href="{{ url_for('home', lang='zh_tw') }}" class="lang-link"
+            >繁體中文</a
+          >
+          {% else %}
+          <a href="{{ url_for('home', lang='en_us') }}" class="lang-link"
+            >English</a
+          >
+          {% endif %}
+        </div>
+
+        <img
+          src="{{ url_for('static', filename='profile.jpg') }}"
+          alt="個人照片"
+          class="profile-pic"
+        />
+
+        <h1>
+          {{ data.name }}{% if data.english_name %} ({{ data.english_name }}){%
+          endif %}
+        </h1>
+        <h2>{{ data.headline }}</h2>
+
+        <button id="theme-toggle" title="切換深色模式">
+          <i id="theme-icon" class="fas fa-moon"></i>
+        </button>
+
+        <p class="intro">{{ data.intro }}</p>
+
+        <div class="social-links">
+          {% for link in data.social_links %}
+          <a href="{{ link.href }}" target="_blank" title="{{ link.title }}"
+            ><i class="{{ link.icon }}"></i> {{ link.title }}</a
+          >
+          {% endfor %}
+        </div>
+      </div>
+    </header>
+
+    <main class="container">
+      <section id="education">
+        <h2>{% if lang == 'en_us' %}Education{% else %}學歷{% endif %}</h2>
+        {% for edu in data.education %}
+        <div class="edu-item">
+          <h3>{{ edu.school }}</h3>
+          <p><strong>{{ edu.degree }}</strong> | {{ edu.period }}</p>
+        </div>
+        {% endfor %}
+      </section>
+
+      <section id="experience">
+        <h2>
+          {% if lang == 'en_us' %}Experience{% else %}實習與工作經歷{% endif %}
+        </h2>
+        {% for exp in data.experience %}
+        <div class="exp-item">
+          <h3>
+            {{ exp.company }}{% if exp.location %} ({{ exp.location }}){% endif
+            %}
+          </h3>
+          <p><strong>{{ exp.title }}</strong> | {{ exp.period }}</p>
+          <ul>
+            {% for duty in exp.duties %}
+            <li>{{ duty }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+        {% endfor %}
+      </section>
+
+      <section id="skills">
+        <h2>{% if lang == 'en_us' %}Skills{% else %}專業技能{% endif %}</h2>
+        {% for category, skill_list in data.skills.items() %}
+        <div class="skill-category">
+          <h3>{{ category }}</h3>
+          <div class="skills-grid">
+            {% for skill in skill_list %}
+            <span class="skill-item">{{ skill }}</span>
+            {% endfor %}
+          </div>
+        </div>
+        {% endfor %}
+      </section>
+
+      <section id="projects">
+        {% for category in data.projects %} {% if category.project_list %}
+
+        <h2>{{ category.category_name }}</h2>
+
+        {% for project in category.project_list %}
+        <div class="project">
+          <h3>{{ project.name }}</h3>
+
+          <div class="project-meta">
+            {% if project.period %}
+            <span class="meta-item">
+              <i class="fas fa-calendar-alt"></i> {{ project.period }}
+            </span>
+            {% endif %} {% if project.project_id %}
+            <span class="meta-item">
+              <i class="fas fa-hashtag"></i> {{ project.project_id }}
+            </span>
+            {% endif %} {% if project.project_url and project.project_url != '#'
+            %}
+            <span class="meta-item">
+              <a
+                href="{{ project.project_url }}"
+                target="_blank"
+                class="meta-link"
+                title="查看專案連結"
+              >
+                <i class="fas fa-link"></i> Link
+              </a>
+            </span>
+            {% endif %}
+          </div>
+          <p class="project-desc">{{ project.desc }}</p>
+          <ul>
+            {% for detail in project.details %}
+            <li>{{ detail|safe }}</li>
+            {% endfor %}
+          </ul>
+          {% if project.link %}
+          <div class="project-links">
+            <a href="{{ project.link.href }}" target="_blank"
+              >{{ project.link.text }}</a
+            >
+          </div>
+          {% endif %}
+        </div>
+        {% endfor %} {% endif %} {% endfor %}
+      </section>
+    </main>
+
+    <footer>
+      <p>
+        &copy; {{ data.copyright_year }} {{ data.name }}{% if data.english_name
+        %} ({{ data.english_name }}){% endif %}. All Rights Reserved.
+      </p>
+    </footer>
+  </body>
+</html>
